@@ -1,0 +1,77 @@
+<body>
+  <div class="frontage">
+    <img
+      class="image_one"
+      src="/assets/img/logo-wwcempx.png"
+      alt="logo wage wise"
+    />
+    <h1 class="title_one">WageWise</h1>
+    <p class="paragraph_one">Gerencie com sabedoria e precisão!</p>
+  </div>
+
+  <div class="login-container">
+    <img
+      class="image_two"
+      src="/assets/img/logo-wwcempx.png"
+      alt="logo Wage Wise"
+    />
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group">
+        <h2 class="login_text">Iniciar sessão</h2>
+        <label for="username"></label>
+        <input
+          type="text"
+          class="pHolder"
+          id="username"
+          name="username"
+          placeholder="CPF"
+          [(ngModel)]="user.username"
+          required
+        />
+        <i class="fa fa-user"></i>
+      </div>
+      <div class="form-group">
+        <label for="password"></label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          class="pHolder"
+          id="password"
+          name="password"
+          placeholder="Senha"
+          [(ngModel)]="user.password"
+          required
+        />
+        <i
+          class="fa"
+          [ngClass]="showPassword ? 'fa-unlock' : 'fa-lock'"
+          (click)="togglePasswordVisibility()"
+          (mouseover)="onMouseOverIcon()"
+          [title]="showPassword ? 'Ocultar senha' : 'Mostrar senha'"
+        ></i>
+      </div>
+      <button type="submit" [disabled]="!loginForm.form.valid">Entrar</button>
+    </form>
+    <div class="links">
+      <!-- <h2 class="paragraph_two">Acesse nossas redes:</h2> decidi ocultar para deixar mais clean, pois os icones já falam por si só-->
+      <a
+        class="links_redes"
+        href="https://www.instagram.com/rodbarbosa_/"
+        target="_blank"
+        ><img src="/assets/img/instagram-alt-logo-48.png" alt="instagram"
+      /></a>
+      <a
+        class="links_redes"
+        href="https://www.facebook.com/profile.php?id=100003878667944"
+        target="_blank"
+        ><img src="/assets/img/facebook-square-logo-48.png" alt="facebook"
+      /></a>
+      <a
+        class="links_redes"
+        href="https://www.linkedin.com/in/rodrigo-barbosa-bb8a1a246/"
+        target="_blank"
+        ><img src="/assets/img/linkedin-square-logo-48.png" alt="linkedin"
+      /></a>
+    </div>
+  </div>
+</body>

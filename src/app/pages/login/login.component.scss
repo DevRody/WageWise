@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+:root {
+  --primary-font: "Open Sans";
+}
+
+body {
+  background-image: url('/assets/img/fundo-login.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.image_one {
+  width: 100px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.image_two {
+  margin-bottom: 20px;
+}
+
+.frontage {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  margin-left: 28%;
+}
+
+.title_one {
+  font-family: var(--primary-font);
+  font-size: 48px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 5px;
+  -webkit-text-stroke: 0.2px #000000;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  
+}
+
+.paragraph_one {
+  font-family: var(--primary-font);
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+  -webkit-text-stroke: 0.2px #000000;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 1);
+}
+
+.login-container {
+    font-family: var(--primary-font);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    float: right;
+    width: 30%;
+    background-color: #f7f7f7;
+    
+  
+    h2 {
+      color: #00000078;
+      font-weight: 400;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    form {
+      width: 300px;
+      background-color: #f7f7f7;
+      padding: 20px;
+      //border: 0.02px solid #4d4c4c11;
+      border-radius: 15px;
+      //box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.200);
+  
+      .form-group {
+        
+        margin-bottom: 15px;
+        text-align: center;
+        text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        
+  
+        label {
+          color: #00000078;
+          font-weight: 500;
+        }
+  
+        input {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          padding: 10px;
+          border: 0.15px solid rgba(0, 0, 0, 0.17);
+          //border: 0.15px solid #cccccc4e;
+          border-radius: 10px;
+          box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.274);
+        }
+      }
+  
+      button {
+        margin-top: 20px;
+        width: 100%;
+        background-color: #000000;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #000000c4;
+        }
+      }
+    }
+  }
+
+.links {
+  margin-top: 40%;
+  text-align: center;
+}
+
+.paragraph_two {
+  font-family: var(--primary-font);
+  font-weight: 400;
+  margin-bottom: 20px;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.links_redes {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.pHolder {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.504)
+}
+
+input.pHolder {
+  padding-left: 30px; /* Espaço à esquerda para o ícone */
+}
+
+i.fa-lock, i.fa-unlock, i.fa-user {
+  position: absolute;
+  margin: -28px 0 0 100px; /* Ajuste a margem conforme necessário para posicionar o ícone */
+  color: #0000002a;
+}
+
+i.fa {
+  text-shadow: none;
+}

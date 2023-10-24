@@ -1,0 +1,18 @@
+body {
+    margin: 100px;
+    padding: 100px
+}
+
+form {
+    background-color: #f7f7f7;
+}
+
+input {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 10px;
+    border: 0.15px solid #cccccc4e;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.15);
+}

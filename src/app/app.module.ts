@@ -8,8 +8,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './pages/login/login.component';
 import { FolhaComponent } from './pages/folha/folha.component';
-import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { CadastroComponent } from './pages/listagem-funcionarios/cadastro/cadastro.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ListagemFuncionariosComponent } from './pages/listagem-funcionarios/listagem-funcionarios.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     LoginComponent,
     FolhaComponent,
     CadastroComponent,
+    ListagemFuncionariosComponent,
   ],
   imports: [
     BrowserModule,

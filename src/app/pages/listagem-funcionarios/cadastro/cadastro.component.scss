@@ -1,5 +1,29 @@
 .container-modal {
-    background-color: red;
+    background-color: #f7f7f7;
     height: 100%;
     width: 100%;
 }
+
+.register-form {
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+    font-family: var(--primary-font);
+    
+}
+
+.register-title {
+    font-family: var(--primary-font);
+    height: 75px;
+    padding-top: 20px;
+    padding-left: 20px;
+    
+}
+
+.register-buttons {
+    padding-bottom: 1.5vh;
+}
+
+
+
+

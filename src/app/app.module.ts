@@ -11,6 +11,7 @@ import { FolhaComponent } from './pages/folha/folha.component';
 import { CadastroComponent } from './pages/listagem-funcionarios/cadastro/cadastro.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ListagemFuncionariosComponent } from './pages/listagem-funcionarios/listagem-funcionarios.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,8 @@ import { ListagemFuncionariosComponent } from './pages/listagem-funcionarios/lis
     FolhaComponent,
     CadastroComponent,
     ListagemFuncionariosComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,8 @@ import { ListagemFuncionariosComponent } from './pages/listagem-funcionarios/lis
     MatButtonModule,
     FormsModule,
     MatDialogModule,
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

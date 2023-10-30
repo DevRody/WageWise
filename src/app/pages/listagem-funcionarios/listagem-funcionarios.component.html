@@ -1,3 +1,180 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openModal()">
-    Registrar funcionário
-  </button>
+<header
+  class="head-listing"
+  style="background-color: black; width: 100%; padding-bottom: 20px"
+>
+  <div
+    style="display: flex; justify-content: space-between; align-items: center"
+  >
+    <h1
+      style="
+        color: #fff;
+        text-align: left;
+        padding-left: 20px;
+        padding-top: 15px;
+        margin: 0;
+      "
+    >
+      <img
+        src="/assets/img/logo-wwcempx.png"
+        alt=""
+        style="width: 50px; padding-right: 8px"
+      />WageWise
+    </h1>
+    <i
+      class="fa-solid fa-arrow-right-from-bracket"
+      style="
+        color: #fff;
+        font-size: 24px;
+        padding-right: 20px;
+        padding-top: 20px;
+      "
+    ></i>
+  </div>
+</header>
+
+<section class="back-listing">
+  <div class="listing">
+    <header class="title-listing">
+      <div class="container-header-list">
+        <h1 style="flex: 1; font-size: 30px; font-weight: 500">
+          <strong>Relação de funcionários</strong>
+        </h1>
+
+        <div
+          class="col-2"
+          style="margin-right: 450px; margin-bottom: -10px; position: relative"
+        >
+          <label for="inputSearch" class="input-search-deployeer"></label>
+          <i
+            class="fa-solid fa-magnifying-glass"
+            style="
+              position: absolute;
+              left: 25px;
+              top: 38px;
+              transform: translateY(-50%);
+            "
+          ></i>
+          <input
+            type="text"
+            class="form-control"
+            id="inputSearch"
+            style="
+              font-size: 14px;
+              border: 0.15px solid var(--input-border);
+              text-align: center;
+              border-radius: 18px;
+            "
+            placeholder="Filtre por nome ou CPF"
+          />
+        </div>
+
+        <div
+          class="open-modal-button"
+          style="margin-left: auto; margin-right: 25px; margin-bottom: -25px"
+        >
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            (click)="openModal()"
+            style="
+              --bs-btn-padding-y: 10px;
+              --bs-btn-padding-x: 26px;
+              --bs-btn-font-size: 18px;
+              background-color: black;
+              border-radius: 25px;
+              border: none;
+            "
+            onmouseover="this.style.backgroundColor='#000000c4'"
+            onmouseout="this.style.backgroundColor='black'"
+          >
+            <i
+              class="fa-solid fa-user"
+              style="color: #ffffff; padding-right: 8px"
+            ></i>
+            Cadastrar funcionário
+          </button>
+        </div>
+      </div>
+    </header>
+    <h2 style="font-size: 18px; background-color: #f7f7f7">
+      <p style="margin-bottom: -15px">
+        Funcionários cadastrados: 3
+      </p>
+      <hr style="background-color: #f2f2f2" />
+    </h2>
+
+    <div>
+      <table
+        class="table table-striped table-bordered table-hover"
+        style="text-align: center; margin-top: -16px"
+      >
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>CPF</th>
+            <th>Data de admissão</th>
+            <th class="gerenciamento-cell">Gerenciamento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Arthur Giannoni</td>
+            <td>Desenvolvedor</td>
+            <td>1234567891</td>
+            <td>27/10/2023</td>
+            <td>
+              <i
+                class="fa-solid fa-pen-to-square fa-lg"
+                style="margin-right: 30px"
+              ></i>
+              <i class="fa-solid fa-trash fa-lg"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>João Pedro Aleixo</td>
+            <td>Desenvolvedor</td>
+            <td>3215632478</td>
+            <td>27/10/2023</td>
+            <td>
+              <i
+                class="fa-solid fa-pen-to-square fa-lg"
+                style="margin-right: 30px"
+              ></i>
+              <i class="fa-solid fa-trash fa-lg"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Rodrigo Barbosa</td>
+            <td>Desenvolvedor</td>
+            <td>7451236589</td>
+            <td>27/10/2023</td>
+            <td>
+              <i
+                class="fa-solid fa-pen-to-square fa-lg"
+                style="margin-right: 30px"
+              ></i>
+              <i class="fa-solid fa-trash fa-lg"></i>
+            </td>
+          </tr>
+
+          <!-- Adicione mais linhas conforme necessário -->
+        </tbody>
+      </table>
+    </div>
+
+    <!--botão do para abrir o modal-->
+  </div>
+</section>
+
+<div class="container-footer">
+  <footer class="content-footer">
+    &copy; WageWise
+  </footer>
+</div>

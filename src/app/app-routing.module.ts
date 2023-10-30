@@ -9,7 +9,7 @@ import { ListagemFuncionariosComponent } from './pages/listagem-funcionarios/lis
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'folha',component:FolhaComponent},
-  {path:'cadastro',component:ListagemFuncionariosComponent},
+  {path:'listagem-funcionarios',component:ListagemFuncionariosComponent},
 ];
 
 @NgModule({

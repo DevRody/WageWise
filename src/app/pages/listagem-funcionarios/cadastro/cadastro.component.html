@@ -1,9 +1,18 @@
 <section class="container-modal">
-  <div style="display: flex; align-items: center;">
-    <h1 class="register-title" style="margin: 0;">Cadastro de Funcionário</h1>
-    <i class="fa-solid fa-xmark" style="color: rgb(0, 0, 0); font-size: 28px; margin-left: auto; margin-top: -25px; margin-right: 17px;"></i>
+  <div style="display: flex; align-items: center">
+    <h1 class="register-title" style="margin: 0">Cadastro de Funcionário</h1>
+    <i
+      class="fa-solid fa-xmark"
+      style="
+        color: rgb(0, 0, 0);
+        font-size: 28px;
+        margin-left: auto;
+        margin-top: -25px;
+        margin-right: 17px;
+      "
+    ></i>
   </div>
-  
+
   <hr style="padding-bottom: 25px" />
   <form class="register-form">
     <div
@@ -12,14 +21,23 @@
     >
       <div class="col-6">
         <label for="inputEmail4" class="form-label">Nome completo</label>
-        <input type="email" class="form-control" id="inputEmail4" 
-        style="border: 0.2px solid rgba(0, 0, 0, 0.141); border-radius: px; box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.29);"/>
+        <input
+          type="email"
+          class="form-control"
+          id="inputEmail4"
+          style="border: 0.15px solid var(--input-border);"
+        />
       </div>
       <div class="col-2">
         <label for="inputPassword4" class="form-label"
           >Data de nascimento</label
         >
-        <input type="date" class="form-control" id="inputPassword4" style="font-size: 14px; border: 0.15px solid rgba(0, 0, 0, 0.17); border-radius: 10px; box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.274);" />
+        <input
+          type="date"
+          class="form-control"
+          id="inputPassword4"
+          style="font-size: 14px;  border: 0.15px solid var(--input-border);"
+        />
       </div>
       <div class="col-3">
         <label for="inputAddress" class="form-label">CPF</label>
@@ -27,7 +45,8 @@
           type="text"
           class="form-control"
           id="inputAddress"
-          placeholder=""
+          placeholder="___.___.___-__"
+          style="border: 0.15px solid var(--input-border);"
         />
       </div>
     </div>
@@ -37,7 +56,7 @@
     >
       <div class="col-2">
         <label for="inputZip" class="form-label">CEP</label>
-        <input type="text" class="form-control" id="inputZip" />
+        <input type="text" class="form-control" id="inputZip" style="border: 0.15px solid var(--input-border);" />
       </div>
 
       <div class="col-6">
@@ -47,12 +66,13 @@
           class="form-control"
           id="inputAddress"
           placeholder=" "
+          style="border: 0.15px solid var(--input-border);"
         />
       </div>
 
       <div class="col-1">
         <label for="inputNumber" class="form-label">Número</label>
-        <input type="text" class="form-control" id="inputNumber" />
+        <input type="text" class="form-control" id="inputNumber" style="border: 0.15px solid var(--input-border);" />
       </div>
     </div>
 
@@ -66,22 +86,23 @@
           class="form-control"
           id="inputAddress2"
           placeholder=" "
+          style="border: 0.15px solid var(--input-border);"
         />
       </div>
 
       <div class="col-3">
         <label for="inputCity" class="form-label">Cidade</label>
-        <input type="text" class="form-control" id="inputCity" />
+        <input type="text" class="form-control" id="inputCity" style="border: 0.15px solid var(--input-border);" />
       </div>
 
       <div class="col-2">
         <label for="inputState" class="form-label">Estado</label>
-        <select id="inputState" class="form-select">
+        <select id="inputState" class="form-select" style="font-size: 15px;  border: 0.15px solid var(--input-border);">
           <option selected>SP</option>
           <option selected>MG</option>
-          <option selected>Choose...</option>
-          <option selected>Choose...</option>
-          <option selected>Choose...</option>
+          <option selected>Selecione...</option>
+          <option selected>Selecione...</option>
+          <option selected>Selecione...</option>
           <option>...</option>
         </select>
       </div>
@@ -97,12 +118,13 @@
           class="form-control"
           id="inputEmail4"
           placeholder="email@exemplo.com"
+          style="border: 0.15px solid var(--input-border);"
         />
       </div>
 
       <div class="col-3">
         <label for="inputPassword4" class="form-label">Telefone</label>
-        <input type="text" class="form-control" id="inputPassword4" />
+        <input type="text" class="form-control" id="inputPassword4" style="border: 0.15px solid var(--input-border);" placeholder="(  ) _ ____-____" />
       </div>
     </div>
 
@@ -111,19 +133,26 @@
     >
       <div class="col-md-4">
         <label for="inputJob" class="form-label">Cargo</label>
-        <select id="inputJob" class="form-select">
-          <option selected>Desenvolvedor</option>
+        <select id="inputJob" class="form-select" style="font-family: var(--primary-font); font-size:  15px; border: 0.15px solid var(--input-border);">
+          <option style="font-family: var(--primary-font); font-size:  14px;"selected>Desenvolvedor</option>
           <option selected>Designer</option>
           <option selected>Analista</option>
-          <option selected>Choose...</option>
-          <option selected>Choose...</option>
+          <option selected>Selecione...</option>
+          <option selected>Selecione...</option>
           <option>...</option>
         </select>
       </div>
 
       <div class="col-md-2">
-        <label for="inputZip" class="form-label">Salário base</label>
-        <input type="text" class="form-control" id="inputZip" />
+        <label for="inputSalary" class="form-label">Salário base</label>
+        <input type="text" class="form-control" id="inputSalary" style="border: 0.15px solid var(--input-border);" />
+      </div>
+
+      <div class="col-md-2">
+        <label for="inputAdmissionDate" class="form-label"
+          >Data de admissão</label
+        >
+        <input type="date" class="form-control" id="inputAdmissionDate" style="font-size: 14px; border: 0.15px solid var(--input-border);"/>
       </div>
     </div>
   </form>
@@ -140,18 +169,41 @@
     "
   >
     <div class="register-buttons">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" 
-      style="--bs-btn-padding-y: 10px; --bs-btn-padding-x: 26px; --bs-btn-font-size: 18px; background-color: #6c7383; border-radius: 25px; border: none;"
-      onmouseover="this.style.backgroundColor='#6c738393'"
-      onmouseout="this.style.backgroundColor='#6c7383'">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-bs-dismiss="modal"
+        style="
+          --bs-btn-padding-y: 10px;
+          --bs-btn-padding-x: 26px;
+          --bs-btn-font-size: 18px;
+          background-color: #6c7383;
+          border-radius: 25px;
+          border: none;
+        "
+        onmouseover="this.style.backgroundColor='#6c738393'"
+        onmouseout="this.style.backgroundColor='#6c7383'"
+      >
         Voltar
       </button>
     </div>
     <div>
-      <button type="button" class="btn btn-primary"
-      style="--bs-btn-padding-y: 10px; --bs-btn-padding-x: 26px; --bs-btn-font-size: 18px; background-color: black; border-radius: 25px; border: none;"
-      onmouseover="this.style.backgroundColor='#000000c4'"
-      onmouseout="this.style.backgroundColor='black'">Cadastrar</button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        style="
+          --bs-btn-padding-y: 10px;
+          --bs-btn-padding-x: 26px;
+          --bs-btn-font-size: 18px;
+          background-color: black;
+          border-radius: 25px;
+          border: none;
+        "
+        onmouseover="this.style.backgroundColor='#000000c4'"
+        onmouseout="this.style.backgroundColor='black'"
+      >
+        Cadastrar
+      </button>
     </div>
   </div>
 </section>

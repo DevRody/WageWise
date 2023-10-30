@@ -3,7 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 
 :root {
-    --primary-font: "Open Sans";
+    --primary-font: "Open Sans" !important;
+
+
+    --input-opacity: #6c738383;
+    --input-border: rgba(0, 0, 0, 0.17);
   }
 
 //html, body { height: 100%; }

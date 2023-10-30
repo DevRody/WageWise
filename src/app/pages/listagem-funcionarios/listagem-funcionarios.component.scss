@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap');
+
+
+:root {
+    --primary-font: "Open Sans";
+  }
+
+.head-listing {
+    padding-bottom: 5px;
+
+}
+
+.back-listing {
+  background-image: url("/assets/img/fundo-login.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Defina a altura para 100% da altura da tela. */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.listing {
+  //border: 3px solid #6c7383;
+  font-family: var(--primary-font);
+  border-radius: 6px;
+  background-color: #f7f7f7;
+  width: 95%;
+  height: 90%;
+  padding: 20px;
+  
+}
+
+.container-header-list {
+  display: flex;
+  justify-content: space-around, space-between;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+}
+
+
+
+/*.title-listing {
+    border-radius: 6px;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    background-color: #f2f2f2;
+    padding-top: 10px;
+    padding-left: 10px;
+    text-align:left;
+}*/
+
+.gerenciamento-cell {
+  max-width: 40px; /* Defina a largura máxima desejada */
+}
+
+.container-footer {
+  background-color: black;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  height: 50px;
+}
+
+.content-footer{
+  font-family: var(--primary-font);
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  color: #f7f7f7;
+}

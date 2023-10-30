@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-//import { AuthService } from './caminho-do-seu-servico-de-autenticacao';
+//import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent {
   showPassword = false;
   showPasswordTooltip = 'Mostrar senha'; 
 
-  //constructor(private authService: AuthService) { } // Injete o serviço de autenticação no construtor
+  //constructor(private authService: AuthService) {}
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
@@ -28,10 +28,9 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    // adicionar a lógica para enviar a solicitação de login ao servidor
+  //  this.authService.login(this.user.username, this.user.password)
     console.log('Usuário: ', this.user.username);
     console.log('Senha: ', this.user.password);
-    // Exemplo de chamada a um serviço de autenticação
-    // this.authService.login(this.user.username, this.user.password);
+    
   }
 }

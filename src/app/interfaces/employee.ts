@@ -1,4 +1,6 @@
-import { Adress } from './adress';
+
+import { Address, AddressForm } from './adress';
+import { FormControl, FormGroup } from '@angular/forms';
 
 export interface Employee {
     id: number;
@@ -10,5 +12,18 @@ export interface Employee {
     admissionDate: string;
     phone: string;
     birthDate: string;
-    adress: Adress;
+    address: Address;
+}
+
+export interface EmployeeForm {
+    id: FormControl<number | null>;
+    name: FormControl<string>;
+    email: FormControl<string>;
+    document: FormControl<string>;
+    jobTitle: FormControl<string>;
+    baseSalary: FormControl<number>;
+    admissionDate: FormControl<string>;
+    phone: FormControl<string>;
+    birthDate: FormControl<string>;
+    address: FormGroup<AddressForm>;
 }

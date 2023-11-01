@@ -114,19 +114,19 @@
           <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Cargo</th>
             <th>CPF</th>
+            <th>Cargo</th>
             <th>Data de admissão</th>
             <th class="gerenciamento-cell">Gerenciamento</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Arthur Giannoni</td>
-            <td>Desenvolvedor</td>
-            <td>1234567891</td>
-            <td>27/10/2023</td>
+          <tr *ngFor="let item of employees">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.document}}</td>
+            <td>{{item.jobTitle}}</td>
+            <td>{{item.admissionDate}}</td>
             <td>
               <i
                 class="fa-solid fa-pen-to-square fa-lg"
@@ -135,34 +135,7 @@
               <i class="fa-solid fa-trash fa-lg"></i>
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>João Pedro Aleixo</td>
-            <td>Desenvolvedor</td>
-            <td>3215632478</td>
-            <td>27/10/2023</td>
-            <td>
-              <i
-                class="fa-solid fa-pen-to-square fa-lg"
-                style="margin-right: 30px"
-              ></i>
-              <i class="fa-solid fa-trash fa-lg"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Rodrigo Barbosa</td>
-            <td>Desenvolvedor</td>
-            <td>7451236589</td>
-            <td>27/10/2023</td>
-            <td>
-              <i
-                class="fa-solid fa-pen-to-square fa-lg"
-                style="margin-right: 30px"
-              ></i>
-              <i class="fa-solid fa-trash fa-lg"></i>
-            </td>
-          </tr>
+          
 
           <!-- Adicione mais linhas conforme necessário -->
         </tbody>

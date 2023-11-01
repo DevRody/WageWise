@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './pages/login/login.component';
 import { FolhaComponent } from './pages/folha/folha.component';
 import { CadastroComponent } from './pages/listagem-funcionarios/cadastro/cadastro.component';
-import {MatDialogModule} from '@angular/material/dialog';
 import { ListagemFuncionariosComponent } from './pages/listagem-funcionarios/listagem-funcionarios.component';
-import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -20,8 +22,6 @@ import { HttpClientModule } from '@angular/common/http';
     FolhaComponent,
     CadastroComponent,
     ListagemFuncionariosComponent,
-    
-    
   ],
   imports: [
     BrowserModule,
@@ -31,9 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     MatDialogModule,
     HttpClientModule,
-    
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

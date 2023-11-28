@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { Employee } from 'src/app/interfaces/employee';
 import { Address } from 'src/app/interfaces/adress';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-listagem-funcionarios',
@@ -10,18 +11,17 @@ import { Address } from 'src/app/interfaces/adress';
   styleUrls: ['./listagem-funcionarios.component.scss'],
 })
 export class ListagemFuncionariosComponent {
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private authService: AuthService) {}
 
   openModal() {
-  
     let test = this.dialog.open(CadastroComponent, {
       panelClass: 'dialog',
     });
     test.afterClosed().subscribe({
-      next:(response:Employee) => {
-        this.employees.push(response)
-      }
-    })
+      next: (response: Employee) => {
+        this.employees.push(response);
+      },
+    });
   }
 
   employees: Employee[] = [
@@ -43,7 +43,7 @@ export class ListagemFuncionariosComponent {
         postalCode: '14305-242',
         neighborhood: 'Jardim São Carlos',
         houseNumber: '662',
-      }
+      },
     },
     {
       id: 2,
@@ -63,7 +63,7 @@ export class ListagemFuncionariosComponent {
         postalCode: '62701',
         neighborhood: 'Downtown',
         houseNumber: '123',
-      }
+      },
     },
     {
       id: 3,
@@ -83,7 +83,7 @@ export class ListagemFuncionariosComponent {
         postalCode: '07040',
         neighborhood: 'Maple Heights',
         houseNumber: '456',
-      }
+      },
     },
     {
       id: 4,
@@ -103,7 +103,7 @@ export class ListagemFuncionariosComponent {
         postalCode: '12345',
         neighborhood: 'Downtown',
         houseNumber: '789',
-      }
+      },
     },
     {
       id: 5,
@@ -123,7 +123,7 @@ export class ListagemFuncionariosComponent {
         postalCode: '29601',
         neighborhood: 'Greenville Heights',
         houseNumber: '101',
-      }
+      },
     },
     {
       id: 6,
@@ -143,7 +143,11 @@ export class ListagemFuncionariosComponent {
         postalCode: '45314',
         neighborhood: 'Cedarville Heights',
         houseNumber: '222',
-      }
-    }
+      },
+    },
   ];
+
+  logout() {
+    this.authService.logout();
+  }
 }

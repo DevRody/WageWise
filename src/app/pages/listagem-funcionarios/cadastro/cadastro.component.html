@@ -4,6 +4,7 @@
       <strong>Cadastro de Funcionário</strong>
     </h1>
     <i
+      mat-dialog-close
       class="fa-solid fa-xmark"
       style="
         color: rgb(0, 0, 0);
@@ -22,34 +23,34 @@
       style="width: 100%; display: flex; column-gap: 20px; padding-bottom: 15px"
     >
       <div class="col-6">
-        <label for="inputEmail4" class="form-label">Nome completo</label>
+        <label for="inputName" class="form-label">Nome completo</label>
         <input
           formControlName="name"
-          type="email"
+          type="text"
           class="form-control"
-          id="inputEmail4"
+          id="inputName"
           style="border: 0.15px solid var(--input-border)"
         />
       </div>
       <div class="col-2">
-        <label for="inputPassword4" class="form-label"
+        <label for="inputBirthdate" class="form-label"
           >Data de nascimento</label
         >
         <input
           formControlName="birthDate"
           type="date"
           class="form-control"
-          id="inputPassword4"
+          id="inputBirthdate"
           style="font-size: 14px; border: 0.15px solid var(--input-border)"
         />
       </div>
       <div class="col-3">
-        <label for="inputAddress" class="form-label">CPF</label>
+        <label for="inputDocument" class="form-label">CPF</label>
         <input
           formControlName="document"
           type="text"
           class="form-control"
-          id="inputAddress"
+          id="inputDocument"
           placeholder="___.___.___-__"
           style="border: 0.15px solid var(--input-border)"
         />
@@ -58,25 +59,25 @@
 
     <div
       class="line-1"
-      style="width: 100%; display: flex; column-gap: 20px; padding-bottom: 15px"
+      style="width: 100%; display: flex; column-gap: 40px; padding-bottom: 15px"
     >
       <div class="col-8">
-        <label for="inputEmail4" class="form-label">Email</label>
+        <label for="inputEmail" class="form-label">Email</label>
         <input
           formControlName="email"
           type="email"
           class="form-control"
-          id="inputEmail4"
+          id="inputEmail"
           style="border: 0.15px solid var(--input-border)"
         />
       </div>
       <div class="col-2">
-        <label for="inputPassword4" class="form-label">Telefone</label>
+        <label for="inputPhone" class="form-label">Telefone</label>
         <input
           formControlName="phone"
-          type="date"
+          type="text"
           class="form-control"
-          id="inputPassword4"
+          id="inputPhone"
           style="font-size: 14px; border: 0.15px solid var(--input-border)"
           placeholder="(  ) _ ____-____"
         />
@@ -88,47 +89,35 @@
       style="width: 100%; display: flex; column-gap: 20px; padding-bottom: 15px"
     >
       <div class="col-6">
-        <label for="inputEmail4" class="form-label">Cargo</label>
-        <select
+        <label for="inputJob" class="form-label">Cargo</label>
+        <input
           formControlName="jobTitle"
+          type="text"
+          class="form-control"
           id="inputJob"
-          class="form-select"
-          style="
-            font-family: var(--primary-font);
-            font-size: 15px;
-            border: 0.15px solid var(--input-border);
-          "
-        >
-          <option
-            style="font-family: var(--primary-font); font-size: 14px"
-            selected
-          >
-            Desenvolvedor
-          </option>
-          <option selected>Designer</option>
-          <option selected>Analista</option>
-          <option selected>Selecione...</option>
-          <option selected>Selecione...</option>
-          <option>...</option>
-        </select>
+          style="border: 0.15px solid var(--input-border)"
+        />
       </div>
       <div class="col-2">
-        <label for="inputPassword4" class="form-label">Data de admissão</label>
+        <label for="inputAdmission" class="form-label">Data de admissão</label>
         <input
           formControlName="admissionDate"
           type="date"
           class="form-control"
-          id="inputPassword4"
+          id="inputAdmission"
           style="font-size: 14px; border: 0.15px solid var(--input-border)"
         />
       </div>
       <div class="col-3">
-        <label for="inputAddress" class="form-label">Salário base</label>
+        <label for="inputBaseSalary" class="form-label"
+          >Salário base (R$)</label
+        >
         <input
+          placeholder="R$"
           formControlName="baseSalary"
-          type="text"
+          type="number"
           class="form-control"
-          id="inputAddress"
+          id="inputBaseSalary"
           style="border: 0.15px solid var(--input-border)"
         />
       </div>
@@ -187,12 +176,12 @@
         "
       >
         <div class="col-5">
-          <label for="inputAddress2" class="form-label">Bairro</label>
+          <label for="inputNeighborhood" class="form-label">Bairro</label>
           <input
             formControlName="neighborhood"
             type="text"
             class="form-control"
-            id="inputAddress2"
+            id="inputNeighborhood"
             placeholder=" "
             style="border: 0.15px solid var(--input-border)"
           />
@@ -211,19 +200,13 @@
 
         <div class="col-2">
           <label for="inputState" class="form-label">Estado</label>
-          <select
+          <input
             formControlName="state"
+            type="text"
+            class="form-control"
             id="inputState"
-            class="form-select"
-            style="font-size: 15px; border: 0.15px solid var(--input-border)"
-          >
-            <option selected>SP</option>
-            <option selected>MG</option>
-            <option selected>Selecione...</option>
-            <option selected>Selecione...</option>
-            <option selected>Selecione...</option>
-            <option>...</option>
-          </select>
+            style="border: 0.15px solid var(--input-border)"
+          />
         </div>
       </div>
     </ng-container>
@@ -242,9 +225,9 @@
   >
     <div class="register-buttons">
       <button
+        mat-dialog-close
         type="button"
         class="btn btn-secondary"
-        data-bs-dismiss="modal"
         style="
           --bs-btn-padding-y: 10px;
           --bs-btn-padding-x: 26px;

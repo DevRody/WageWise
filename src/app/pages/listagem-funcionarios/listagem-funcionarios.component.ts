@@ -1,149 +1,152 @@
-import { Component } from '@angular/core';
+import { Subject, debounceTime } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { Employee } from 'src/app/interfaces/employee';
 import { Address } from 'src/app/interfaces/adress';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { EmployeeService } from 'src/app/shared/services/employee.service';
+import { LoadingService } from 'src/app/shared/services/loading.service';
+import { AccountModalComponent } from 'src/app/shared/components/account-modal/account-modal.component';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-listagem-funcionarios',
   templateUrl: './listagem-funcionarios.component.html',
   styleUrls: ['./listagem-funcionarios.component.scss'],
 })
-export class ListagemFuncionariosComponent {
-  constructor(private dialog: MatDialog) {}
+export class ListagemFuncionariosComponent implements OnInit {
+  employees: Employee[] = [];
+  count: number = 0;
 
-  openModal() {
-  
-    let test = this.dialog.open(CadastroComponent, {
-      panelClass: 'dialog',
+  filter = {
+    search: '',
+    perPage: 100,
+    page: 0,
+  };
+
+  debounceSearch = new Subject();
+
+  constructor(
+    private dialog: MatDialog,
+    private authService: AuthService,
+    private employeeService: EmployeeService,
+    private loadingService: LoadingService,
+    private userService: UserService
+  ) {}
+
+  ngOnInit(): void {
+    this.getEmployeeList();
+
+    this.debounceSearch.pipe(debounceTime(500)).subscribe({
+      next: (response) => {
+        this.getEmployeeListByFilter();
+      },
     });
-    test.afterClosed().subscribe({
-      next:(response:Employee) => {
-        this.employees.push(response)
-      }
-    })
   }
 
-  employees: Employee[] = [
-    {
-      id: 1,
-      name: 'Rodrigo',
-      email: 'rodrigobarbosa.p99@gmail.com',
-      document: '475.958.528-11',
-      jobTitle: 'Desenvolvedor',
-      baseSalary: 3000,
-      admissionDate: '30/10/2023',
-      phone: '(16) 993131518',
-      birthDate: '16/06/1999',
-      address: {
-        id: 1,
-        streetAddress: 'Osvaldo Dalpino',
-        city: 'Batatais',
-        state: 'SP',
-        postalCode: '14305-242',
-        neighborhood: 'Jardim São Carlos',
-        houseNumber: '662',
-      }
-    },
-    {
-      id: 2,
-      name: 'Ana',
-      email: 'ana.smith@example.com',
-      document: '123.456.789-00',
-      jobTitle: 'Designer',
-      baseSalary: 4000,
-      admissionDate: '15/11/2023',
-      phone: '(123) 456-7890',
-      birthDate: '25/08/1990',
-      address: {
-        id: 2,
-        streetAddress: 'Elm Street',
-        city: 'Springfield',
-        state: 'IL',
-        postalCode: '62701',
-        neighborhood: 'Downtown',
-        houseNumber: '123',
-      }
-    },
-    {
-      id: 3,
-      name: 'Maria',
-      email: 'maria.johnson@example.com',
-      document: '987.654.321-99',
-      jobTitle: 'Contador',
-      baseSalary: 4500,
-      admissionDate: '20/09/2023',
-      phone: '(555) 123-4567',
-      birthDate: '10/02/1985',
-      address: {
-        id: 3,
-        streetAddress: 'Maple Avenue',
-        city: 'Maplewood',
-        state: 'NJ',
-        postalCode: '07040',
-        neighborhood: 'Maple Heights',
-        houseNumber: '456',
-      }
-    },
-    {
-      id: 4,
-      name: 'Carlos',
-      email: 'carlos.doe@example.com',
-      document: '333.222.111-77',
-      jobTitle: 'Engenheiro',
-      baseSalary: 5500,
-      admissionDate: '05/12/2023',
-      phone: '(999) 888-7777',
-      birthDate: '03/04/1980',
-      address: {
-        id: 4,
-        streetAddress: 'Main Street',
-        city: 'Hometown',
-        state: 'CA',
-        postalCode: '12345',
-        neighborhood: 'Downtown',
-        houseNumber: '789',
-      }
-    },
-    {
-      id: 5,
-      name: 'Luisa',
-      email: 'luisa.brown@example.com',
-      document: '555.444.333-88',
-      jobTitle: 'Médica',
-      baseSalary: 6000,
-      admissionDate: '10/01/2023',
-      phone: '(777) 666-5555',
-      birthDate: '15/07/1975',
-      address: {
-        id: 5,
-        streetAddress: 'Oak Lane',
-        city: 'Greenville',
-        state: 'SC',
-        postalCode: '29601',
-        neighborhood: 'Greenville Heights',
-        houseNumber: '101',
-      }
-    },
-    {
-      id: 6,
-      name: 'Lucas',
-      email: 'lucas.smith@example.com',
-      document: '111.222.333-44',
-      jobTitle: 'Professor',
-      baseSalary: 3500,
-      admissionDate: '25/03/2023',
-      phone: '(888) 999-0000',
-      birthDate: '12/12/1987',
-      address: {
-        id: 6,
-        streetAddress: 'Cedar Street',
-        city: 'Cedarville',
-        state: 'OH',
-        postalCode: '45314',
-        neighborhood: 'Cedarville Heights',
-        houseNumber: '222',
-      }
-    }
-  ];
+  getEmployeeList() {
+    // this.loadingService.openLoading();
+    this.employeeService.getEmployeeList().subscribe({
+      next: (response) => {
+        if (response) {
+          this.employees = response as Employee[];
+          this.count = this.employees.length;
+        }
+      },
+    });
+  }
+
+  getEmployeeListByFilter() {
+    this.loadingService.openLoading();
+    this.employeeService.getEmployeeListByFilter(this.filter).subscribe({
+      next: (response: any) => {
+        if (response) {
+          this.employees = response.data as Employee[];
+          this.count = response.count;
+        }
+        this.loadingService.closeLoading();
+      },
+    });
+  }
+
+  openModal(employee: any = null) {
+    let test = this.dialog.open(CadastroComponent, {
+      panelClass: 'dialog',
+      data: { employee },
+    });
+    test.afterClosed().subscribe({
+      next: (response: Employee | null) => {
+        if (response) {
+          let index = this.employees.findIndex(
+            (item) => item.id === response.id
+          );
+
+          let text = '';
+
+          if (index !== -1) {
+            this.employees[index] = response;
+            text = 'editado';
+          } else {
+            this.employees.push(response);
+            text = 'criado';
+          }
+
+          window.alert(`Funcionário ${text} com sucesso`);
+        }
+      },
+    });
+  }
+
+  deleteEmployee(id: number) {
+    this.loadingService.openLoading();
+    this.employeeService.deleteEmployee(id).subscribe({
+      next: (response) => {
+        let index = this.employees.findIndex((item) => item.id === id);
+
+        if (index !== -1) this.employees.splice(index, 1);
+
+        window.alert('Funcionário excluído com sucesso!');
+        this.loadingService.closeLoading();
+      },
+    });
+  }
+
+  createAccount(employee: any) {
+    let test = this.dialog.open(AccountModalComponent, {
+      panelClass: 'dialog-account',
+    });
+    test.afterClosed().subscribe({
+      next: (response: boolean) => {
+        if (response) {
+          let user = {
+            document: employee.document,
+            role: 'USER',
+            employeeId: employee.id,
+            name: employee.name
+          };
+
+          this.createUser(user);
+        }
+      },
+    });
+  }
+
+  createUser(user: any) {
+    this.loadingService.openLoading();
+
+    this.userService.createUserAndSendEmail(user).subscribe({
+      next: (response) => {
+        this.loadingService.closeLoading();
+        window.alert(`Um novo cadastro foi criado para o funcionário ${user.name}!`)
+      }, error: (err) => {
+        this.loadingService.closeLoading();
+        window.alert(`O usuário ${user.name} já foi criado!`)
+      },
+    });
+  }
+
+  logout() {
+    this.authService.logout();
+  }
 }

@@ -1,4 +1,7 @@
+import { LoadingService } from './../../shared/services/loading.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 //import { AuthService } from './auth.service';
 
 @Component({
@@ -8,14 +11,18 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
   user = {
-    username: '',
+    document: '',
     password: '',
   };
 
   showPassword = false;
-  showPasswordTooltip = 'Mostrar senha'; 
+  showPasswordTooltip = 'Mostrar senha';
 
-  //constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private LoadingService: LoadingService,
+    private router: Router
+  ) {}
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
@@ -28,9 +35,15 @@ export class LoginComponent {
   }
 
   onSubmit() {
-  //  this.authService.login(this.user.username, this.user.password)
-    console.log('Usuário: ', this.user.username);
-    console.log('Senha: ', this.user.password);
-    
+    this.LoadingService.openLoading();
+    this.authService.login(this.user).subscribe({
+      next: (response) => {
+        this.router.navigate(['/listagem-funcionarios']);
+        this.LoadingService.closeLoading();
+      }, error: (err) => {
+        this.LoadingService.closeLoading(); 
+        window.alert("CPF ou senha incorretos!")
+      },
+    });
   }
 }

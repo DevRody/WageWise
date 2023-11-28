@@ -7,7 +7,7 @@ import { authGuard } from './guards/auth.guard';
 import { loginGuard } from './guards/login.guard';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'folha' },
+  { path: '', pathMatch: 'full', redirectTo: 'listagem-funcionarios' },
   { path: 'auth', component: LoginComponent, canActivate: [loginGuard] },
   { path: 'folha', component: FolhaComponent, canActivate: [authGuard] },
   {

@@ -40,6 +40,9 @@ export class LoginComponent {
       next: (response) => {
         this.router.navigate(['/listagem-funcionarios']);
         this.LoadingService.closeLoading();
+      }, error: (err) => {
+        this.LoadingService.closeLoading(); 
+        window.alert("CPF ou senha incorretos!")
       },
     });
   }

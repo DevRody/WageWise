@@ -3,8 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { FolhaComponent } from './pages/folha/folha.component';
 import { ListagemFuncionariosComponent } from './pages/listagem-funcionarios/listagem-funcionarios.component';
+
 import { authGuard } from './guards/auth.guard';
 import { loginGuard } from './guards/login.guard';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { InformacoesUsuarioComponent } from './pages/usuario/informacoes-usuario/informacoes-usuario.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'listagem-funcionarios' },
@@ -15,7 +18,8 @@ const routes: Routes = [
     component: ListagemFuncionariosComponent,
     canActivate: [authGuard],
   },
-];
+   {path:'usuario', component:UsuarioComponent},
+   {path:'usuario', component:InformacoesUsuarioComponent},
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

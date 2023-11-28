@@ -7,6 +7,8 @@ import { Address } from 'src/app/interfaces/adress';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { EmployeeService } from 'src/app/shared/services/employee.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
+import { AccountModalComponent } from 'src/app/shared/components/account-modal/account-modal.component';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-listagem-funcionarios',
@@ -29,7 +31,8 @@ export class ListagemFuncionariosComponent implements OnInit {
     private dialog: MatDialog,
     private authService: AuthService,
     private employeeService: EmployeeService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -105,6 +108,40 @@ export class ListagemFuncionariosComponent implements OnInit {
 
         window.alert('Funcionário excluído com sucesso!');
         this.loadingService.closeLoading();
+      },
+    });
+  }
+
+  createAccount(employee: any) {
+    let test = this.dialog.open(AccountModalComponent, {
+      panelClass: 'dialog-account',
+    });
+    test.afterClosed().subscribe({
+      next: (response: boolean) => {
+        if (response) {
+          let user = {
+            document: employee.document,
+            role: 'USER',
+            employeeId: employee.id,
+            name: employee.name
+          };
+
+          this.createUser(user);
+        }
+      },
+    });
+  }
+
+  createUser(user: any) {
+    this.loadingService.openLoading();
+
+    this.userService.createUserAndSendEmail(user).subscribe({
+      next: (response) => {
+        this.loadingService.closeLoading();
+        window.alert(`Um novo cadastro foi criado para o funcionário ${user.name}!`)
+      }, error: (err) => {
+        this.loadingService.closeLoading();
+        window.alert(`O usuário ${user.name} já foi criado!`)
       },
     });
   }

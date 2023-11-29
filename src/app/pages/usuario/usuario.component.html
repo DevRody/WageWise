@@ -58,75 +58,77 @@
 
     <hr style="background-color: #f2f2f2" />
 
-    <div class="container-ficha">
-      <div class="flex-container">
+    <div *ngIf="employee" class="container-ficha">
+      <div class="flex-container" style="column-gap: 50px">
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="name">Nome</label>
-          <span>Rodrigo Francisco Barbosa Pereira</span>
+          <span>{{ employee.name || "-" }}</span>
         </div>
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="Data de nascimento">Data de nascimento</label>
-          <span>16/06/1999</span>
+          <span>{{ (employee.birthDate | date : "dd/MM/yyyy") || "-" }}</span>
         </div>
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="CPF">CPF</label>
-          <span>44444444444</span>
+          <span>{{ employee.document || "-" }}</span>
         </div>
       </div>
       <hr />
-      <div class="flex-container">
+      <div class="flex-container" style="column-gap: 150px">
         <div style="display: flex; flex-direction: column; width: 50%">
           <label for="email">Email</label>
-          <span>{{'rodrigobarbosa.p99@gmail.com'}}</span>
+          <span>{{ employee.email || "-" }}</span>
         </div>
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="telefone">Telefone</label>
-          <span>16 993131518</span>
+          <span>{{ employee.phone || "-" }}</span>
         </div>
       </div>
       <hr />
-      <div class="flex-container">
+      <div class="flex-container" style="column-gap: 50px">
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="cargo">Cargo</label>
-          <span>Desenvolvedor</span>
+          <span>{{ employee.jobTitle || "-" }}</span>
         </div>
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="data de pagamento">Data de pagamento</label>
-          <span>05/11/2023</span>
+          <span
+            >{{ (employee.admissionDate | date : "dd/MM/yyyy") || "-" }}</span
+          >
         </div>
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="salario base">Salário base (R$)</label>
-          <span>2.800,00</span>
+          <span>{{ employee.baseSalary || "-" }}</span>
         </div>
       </div>
       <hr />
-      <div class="flex-container">
+      <div class="flex-container" style="column-gap: 50px">
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="cep">CEP</label>
-          <span>14305-242</span>
+          <span>{{ employee.address.postalCode || "-" }}</span>
         </div>
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="rua">Rua</label>
-          <span>Osvaldo Dalpino</span>
+          <span>{{ employee.address.streetAddress || "-" }}</span>
         </div>
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="numero">Número</label>
-          <span>662</span>
+          <span>{{ employee.address.houseNumber || "-" }}</span>
         </div>
       </div>
       <hr />
-      <div class="flex-container">
+      <div class="flex-container" style="column-gap: 50px">
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="bairro">Bairro</label>
-          <span>Jardim São Carlos</span>
+          <span>{{ employee.address.neighborhood || "-" }}</span>
         </div>
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="cidade">Cidade</label>
-          <span>Batatais</span>
+          <span>{{ employee.address.city || "-" }}</span>
         </div>
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="estado">Estado</label>
-          <span>São Paulo</span>
+          <span>{{ employee.address.state || "-" }}</span>
         </div>
       </div>
       <hr />

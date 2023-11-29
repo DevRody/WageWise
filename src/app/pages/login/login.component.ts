@@ -38,12 +38,25 @@ export class LoginComponent {
     this.LoadingService.openLoading();
     this.authService.login(this.user).subscribe({
       next: (response) => {
-        this.router.navigate(['/listagem-funcionarios']);
+        let info = this.authService.decodeToken();
+
+        if (info?.role === Role.ADMIN) {
+          this.router.navigate(['/listagem-funcionarios']);
+        } else {
+          this.router.navigate([`/usuario/${info.employeeId}`]);
+        }
+
         this.LoadingService.closeLoading();
-      }, error: (err) => {
-        this.LoadingService.closeLoading(); 
-        window.alert("CPF ou senha incorretos!")
+      },
+      error: (err) => {
+        this.LoadingService.closeLoading();
+        window.alert('CPF ou senha incorretos!');
       },
     });
   }
+}
+
+enum Role {
+  ADMIN = 'ADMIN',
+  USER = 'USER',
 }

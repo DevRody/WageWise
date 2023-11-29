@@ -11,16 +11,24 @@ import { InformacoesUsuarioComponent } from './pages/usuario/informacoes-usuario
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'listagem-funcionarios' },
-  { path: 'auth', component: LoginComponent,/* canActivate: [loginGuard] */},
-  { path: 'folha', component: FolhaComponent,/* canActivate: [authGuard] */},
+  { path: 'auth', component: LoginComponent, canActivate: [loginGuard] },
+  { path: 'folha', component: FolhaComponent, canActivate: [authGuard] },
   {
     path: 'listagem-funcionarios',
     component: ListagemFuncionariosComponent,
-    //canActivate: [authGuard],
+    canActivate: [authGuard],
   },
-   {path:'usuario', component:UsuarioComponent},
-   {path:'usuario', component:InformacoesUsuarioComponent},
-]
+  {
+    path: 'usuario/:id',
+    component: UsuarioComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'usuario',
+    component: InformacoesUsuarioComponent,
+    canActivate: [authGuard],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

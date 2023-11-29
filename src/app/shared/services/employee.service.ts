@@ -20,7 +20,7 @@ export class EmployeeService {
   }
 
   getEmployeeById(id: string) {
-    return this.httpClient.get(`${this.url}?id=${id}`);
+    return this.httpClient.get(`${this.url}/${id}`);
   }
 
   createEmployee(employee: any) {

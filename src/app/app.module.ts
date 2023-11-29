@@ -15,7 +15,7 @@ import { ListagemFuncionariosComponent } from './pages/listagem-funcionarios/lis
 
 import { LoadingComponent } from './shared/components/loading/loading.component';
 import { RequestInterceptor } from './interceptors/request.interceptor';
-=======
+
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { InformacoesUsuarioComponent } from './pages/usuario/informacoes-usuario/informacoes-usuario.component';
 

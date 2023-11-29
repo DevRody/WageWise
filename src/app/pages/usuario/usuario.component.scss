@@ -71,3 +71,21 @@
   padding-top: 15px;
   color: #f7f7f7;
 }
+
+.container-ficha {
+  margin: 20px; /* Ajuste a margem conforme necessário */
+  margin-top: 50px;
+}
+
+.flex-container {
+  color: gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px; /* Adicione margem inferior para espaçamento entre as seções */
+}
+
+label {
+  width: 30%; /* Ajuste a largura conforme necessário */
+  text-align: left; /* Alinhamento do texto à esquerda */
+}

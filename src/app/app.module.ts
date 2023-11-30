@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,9 +19,6 @@ import { RequestInterceptor } from './interceptors/request.interceptor';
 
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { InformacoesUsuarioComponent } from './pages/usuario/informacoes-usuario/informacoes-usuario.component';
-
-
-
 
 @NgModule({
   declarations: [
@@ -42,6 +40,7 @@ import { InformacoesUsuarioComponent } from './pages/usuario/informacoes-usuario
     HttpClientModule,
     ReactiveFormsModule,
     LoadingComponent,
+    MatSnackBarModule,
   ],
   providers: [
     {

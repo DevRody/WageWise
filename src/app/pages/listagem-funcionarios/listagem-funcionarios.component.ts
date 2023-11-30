@@ -109,7 +109,7 @@ export class ListagemFuncionariosComponent implements OnInit {
         let index = this.employees.findIndex((item) => item.id === id);
 
         if (index !== -1) this.employees.splice(index, 1);
-
+        this.count = this.employees.length
         this.alertService.openAlert(
           'Funcionário excluído com sucesso!',
           'success'

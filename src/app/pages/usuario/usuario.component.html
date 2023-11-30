@@ -74,14 +74,16 @@
         </div>
       </div>
       <hr />
+
+      <div style="display: flex; flex-direction: column; width: 100%">
+        <label for="telefone">Telefone</label>
+        <span>{{ employee.phone || "-" }}</span>
+      </div>
+
       <div class="flex-container" style="column-gap: 150px">
         <div style="display: flex; flex-direction: column; width: 50%">
           <label for="email">Email</label>
           <span>{{ employee.email || "-" }}</span>
-        </div>
-        <div style="display: flex; flex-direction: column; width: 50%">
-          <label for="telefone">Telefone</label>
-          <span>{{ employee.phone || "-" }}</span>
         </div>
       </div>
       <hr />
@@ -92,9 +94,9 @@
         </div>
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="data de pagamento">Data de pagamento</label>
-          <span
-            >{{ (employee.admissionDate | date : "dd/MM/yyyy") || "-" }}</span
-          >
+          <span>{{
+            (employee.admissionDate | date : "dd/MM/yyyy") || "-"
+          }}</span>
         </div>
         <div style="display: flex; flex-direction: column; width: 100%">
           <label for="salario base">Salário base (R$)</label>

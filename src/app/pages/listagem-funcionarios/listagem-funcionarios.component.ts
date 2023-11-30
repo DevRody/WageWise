@@ -9,6 +9,7 @@ import { EmployeeService } from 'src/app/shared/services/employee.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
 import { AccountModalComponent } from 'src/app/shared/components/account-modal/account-modal.component';
 import { UserService } from 'src/app/shared/services/user.service';
+import { AlertService } from 'src/app/shared/services/alert.service';
 
 @Component({
   selector: 'app-listagem-funcionarios',
@@ -32,7 +33,8 @@ export class ListagemFuncionariosComponent implements OnInit {
     private authService: AuthService,
     private employeeService: EmployeeService,
     private loadingService: LoadingService,
-    private userService: UserService
+    private userService: UserService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -46,7 +48,6 @@ export class ListagemFuncionariosComponent implements OnInit {
   }
 
   getEmployeeList() {
-    // this.loadingService.openLoading();
     this.employeeService.getEmployeeList().subscribe({
       next: (response) => {
         if (response) {
@@ -92,7 +93,10 @@ export class ListagemFuncionariosComponent implements OnInit {
             text = 'criado';
           }
 
-          window.alert(`Funcionário ${text} com sucesso`);
+          this.alertService.openAlert(
+            `Funcionário ${text} com sucesso`,
+            'success'
+          );
         }
       },
     });
@@ -106,7 +110,10 @@ export class ListagemFuncionariosComponent implements OnInit {
 
         if (index !== -1) this.employees.splice(index, 1);
 
-        window.alert('Funcionário excluído com sucesso!');
+        this.alertService.openAlert(
+          'Funcionário excluído com sucesso!',
+          'success'
+        );
         this.loadingService.closeLoading();
       },
     });
@@ -123,7 +130,7 @@ export class ListagemFuncionariosComponent implements OnInit {
             document: employee.document,
             role: 'USER',
             employeeId: employee.id,
-            name: employee.name
+            name: employee.name,
           };
 
           this.createUser(user);
@@ -138,10 +145,17 @@ export class ListagemFuncionariosComponent implements OnInit {
     this.userService.createUserAndSendEmail(user).subscribe({
       next: (response) => {
         this.loadingService.closeLoading();
-        window.alert(`Um novo cadastro foi criado para o funcionário ${user.name}!`)
-      }, error: (err) => {
+        this.alertService.openAlert(
+          `Um novo cadastro foi criado para o funcionário ${user.name}!`,
+          'success'
+        );
+      },
+      error: (err) => {
         this.loadingService.closeLoading();
-        window.alert(`O usuário ${user.name} já foi criado!`)
+        this.alertService.openAlert(
+          `O usuário ${user.name} já foi criado!`,
+          'success'
+        );
       },
     });
   }

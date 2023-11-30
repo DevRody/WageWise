@@ -1,8 +1,8 @@
 import { LoadingService } from './../../shared/services/loading.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/shared/services/alert.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
-//import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +21,8 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private LoadingService: LoadingService,
-    private router: Router
+    private router: Router,
+    private alertService: AlertService
   ) {}
 
   togglePasswordVisibility() {
@@ -50,7 +51,7 @@ export class LoginComponent {
       },
       error: (err) => {
         this.LoadingService.closeLoading();
-        window.alert('CPF ou senha incorretos!');
+        this.alertService.openAlert('CPF ou senha incorretos!', 'success');
       },
     });
   }

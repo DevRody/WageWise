@@ -92,7 +92,7 @@ export class ListagemFuncionariosComponent implements OnInit {
             this.employees.push(response);
             text = 'criado';
           }
-
+          this.count = this.employees.length
           this.alertService.openAlert(
             `Funcionário ${text} com sucesso`,
             'success'
